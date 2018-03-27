@@ -2,7 +2,7 @@
 
 <h1>Tweets</h1>
 
-<table>
+<table class="table table-dark">
   <thead>
     <tr>
       <th>Content</th>
@@ -15,7 +15,7 @@
     <% @tweets.each do |tweet| %>
       <tr>
         <td><%= tweet.content %></td>
-        <td><%= tweet.user.id %></td>
+        <td><%= tweet.user.email %></td>
         <td><%= link_to 'Show', tweet %></td>
         <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
         <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Tweet', new_tweet_path %>
+<%= link_to 'New Tweet', new_tweet_path, class: 'btn btn-primary' %>
