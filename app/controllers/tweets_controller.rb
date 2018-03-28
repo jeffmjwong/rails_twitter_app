@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+  before_action :check_owner, only: [:edit, :update, :destroy]
 
   # GET /tweets
   # GET /tweets.json
@@ -66,6 +67,12 @@ class TweetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tweet
       @tweet = Tweet.find(params[:id])
+    end
+
+    def check_owner
+      if current_user != @tweet.user
+        redirect_to tweets_url, notice: 'You are not authorised to perform that action.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
