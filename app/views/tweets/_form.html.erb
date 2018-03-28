@@ -16,6 +16,11 @@
     <%= form.text_field :content, id: :tweet_content %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :tweet_image %>
+  </div>
+
   <!-- <div class="field">
     <%= form.label :user_id %>
     <%= form.text_field :user_id, id: :tweet_user_id %>

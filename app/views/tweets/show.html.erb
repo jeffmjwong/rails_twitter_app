@@ -10,5 +10,9 @@
   <%= @tweet.user.id %>
 </p>
 
+<p>
+  <%= image_tag @tweet.image_url(:medium) %>
+</p>
+
 <%= link_to 'Edit', edit_tweet_path(@tweet) if current_user == @tweet.user %> |
 <%= link_to 'Back', tweets_path %>
